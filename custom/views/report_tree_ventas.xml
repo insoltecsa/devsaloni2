@@ -5,7 +5,7 @@
         <field name="model">custom_insoltecsa.vista_ventas</field>
         <field name="arch" type="xml">
             <search>
-                    <field name="id_invoice" />
+                    <field name="id_invoice"/>
             </search>
         </field>
     </record>
@@ -40,24 +40,6 @@
         </tree>
       </field>
     </record>
-
-    <!-- acciones -->
-    <record model="ir.actions.act_window" id="custom_insoltecsa.log_action_window">
-      <field name="name">Reporte de ventas</field>
-      <field name="res_model">custom_insoltecsa.vista_ventas</field>
-      <field name="view_mode">tree</field>
-      <field name="view_type">tree</field>
-    </record>
-
-    <!-- menu root -->
-    <menuitem name="rep.ventas" 
-              id="sale.sale_report_id" 
-              parent="sale.sale_menu_root"
-              sequence="1"
-              action="custom_insoltecsa.log_action_window"/>
-    <!-- menu item -->
-    
-  
 
   </data>
 </odoo>
