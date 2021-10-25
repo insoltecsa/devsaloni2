@@ -73,5 +73,5 @@ class ctt_vista_factura(models.Model):
      JOIN product_template t7 ON t7.id = t3.product_tmpl_id
      JOIN product_category t8 ON t8.id = t7.categ_id
 	 JOIN res_users t9 on t9.id = t1.invoice_user_id
-     WHERE (t1.move_type::text = ANY (ARRAY['out_invoice'::character varying::text, 'out_refund'::character varying::text])) AND t1.state::text <> 'cancel'::text;
+     WHERE (t1.move_type::text = ANY (ARRAY['out_invoice'::character varying::text, 'out_refund'::character varying::text])) AND t1.state::text <> 'cancel'::text
             )""")
