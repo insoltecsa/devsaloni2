@@ -26,7 +26,7 @@ class ctt_vista_factura(models.Model):
       descuento_p = fields.Float(string="descuento_p")
       total_linea = fields.Float(string="total_linea")
       sub_total = fields.Float(string="sub_total")
-      usurio = fields.Char(string="Usuario")  
+      usuario = fields.Char(string="Usuario")  
 
 
       def init(self):
@@ -44,7 +44,7 @@ class ctt_vista_factura(models.Model):
     concat(t6.code, '-', t6.name) AS pais,
     COALESCE(t5.vat, t1.partner_id::character varying) AS codigo_cliente,
     t1.invoice_partner_display_name AS cliente,
-	t5.vat as Nit,
+	t5.vat as nit,
     t3.default_code AS sku,
     COALESCE(t3.barcode, 'N/A'::character varying) AS ean,
     t7.name AS nombre_sku,
@@ -63,7 +63,7 @@ class ctt_vista_factura(models.Model):
             WHEN t1.move_type::text = 'out_refund'::text THEN t2.price_subtotal * '-1'::integer::numeric
             ELSE t2.price_subtotal
         END AS sub_total,
-		t9.login as Usuario
+		t9.login as usuario
    FROM account_move t1
      JOIN account_move_line t2 ON t2.move_id = t1.id
      JOIN product_product t3 ON t3.id = t2.product_id
